@@ -1,0 +1,57 @@
+import sys
+import logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile.log")
+
+def print_maturity(age):
+    if age >= 18:
+        logging.info("You are an adult")
+    else:
+        logging.info("You are a kiddo!")
+
+if __name__ == "__main__":
+    logging.debug("The program was called with this parameters %s" % sys.argv[1:])
+    logging.debug("First parameter is %s" % sys.argv[1])
+    age = int(sys.argv[1])
+    print_maturity(age)
+
+def shopping(items, payment='card', shop='local shop'):
+    result = ""
+    result = result + "Idę na zakupy do %s.\n" % shop
+    result = result + "Kupię następujące rzeczy:\n"
+    for item in items:
+        result = result + " - %s\n" % item
+    result = result + "By zapłacić, używam %s." % payment
+    return result
+
+if __name__ == "__main__":
+    items_text = input("Podaj proszę produkty rozdzielone przecinkiem: ")
+    items = items_text.split(',')
+    shopping_result = shopping(items)
+    print(shopping_result)
+
+def personalized_hello(your_name):
+    result = "Hello %s !\n" %(your_name)
+    return result  
+
+if __name__ == "__main__":
+    hello_text = input("Podaj proszę swoją płeć, imię i nazwisko: ")
+    your_name = hello_text.title()
+    personalized_hello_result = personalized_hello(your_name)
+    print(personalized_hello_result)
+
+if __name__ == "__main__":
+    print("Witaj, oto kalkulator Magdy :)")
+    adult = None
+    action = int(input("Podaj działanie, posługując się odpowiednią liczbą: 1 - Dodawanie, 2 - Odejmowanie, 3 - Mnożenie, 4 - Dzielenie: "))
+if action == '1':
+    n1 = int(input("Twój wiek? "))
+    adult = age >= 18
+elif sex == 'K':
+    print("Kobiet o wiek się nie pyta, więc zrobię to delikatnie.")
+    over18_yesno = input("Czy miałaś już osiemnastkę? [T/N]?")
+    adult = (over18_yesno == 'T')
+else:
+    print("Nie ma takiej płci!")
+    exit(1)
+print("Już wiem. Twoja pełnoletniość w boolean to %s" % str(adult))
+
