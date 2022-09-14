@@ -44,8 +44,8 @@ if __name__ == "__main__":
     wynik = None
     action = int(input("Podaj działanie, posługując się odpowiednią liczbą: 1 - Dodawanie, 2 - Odejmowanie, 3 - Mnożenie, 4 - Dzielenie: "))
 if action == '1':
-    n1 = int(input("Podaj skłądnik 1:"))
-    n2 = int(input("Podaj skłądnik 2:"))
+    n1 = int(input("Podaj składnik 1:"))
+    n2 = int(input("Podaj składnik 2:"))
     wynik = n1 + n2
 elif sex == 'K':
     print("Kobiet o wiek się nie pyta, więc zrobię to delikatnie.")
@@ -54,5 +54,6 @@ elif sex == 'K':
 else:
     print("Nie ma takiej płci!")
     exit(1)
+print("Dodaję %s i %s" % str(n1,n2))
 print("Już wiem. Twoja pełnoletniość w boolean to %s" % str(adult))
 
