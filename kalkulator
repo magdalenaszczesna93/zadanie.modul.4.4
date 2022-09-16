@@ -39,21 +39,44 @@ if __name__ == "__main__":
     personalized_hello_result = personalized_hello(your_name)
     print(personalized_hello_result)
 
-if __name__ == "__main__":
-    print("Witaj, oto kalkulator Magdy :)")
-    wynik = None
-    action = int(input("Podaj działanie, posługując się odpowiednią liczbą: 1 - Dodawanie, 2 - Odejmowanie, 3 - Mnożenie, 4 - Dzielenie: "))
-if action == '1':
-    n1 = int(input("Podaj składnik 1:"))
-    n2 = int(input("Podaj składnik 2:"))
-    wynik = n1 + n2
-elif sex == 'K':
-    print("Kobiet o wiek się nie pyta, więc zrobię to delikatnie.")
-    over18_yesno = input("Czy miałaś już osiemnastkę? [T/N]?")
-    adult = (over18_yesno == 'T')
-else:
-    print("Nie ma takiej płci!")
-    exit(1)
-print("Dodaję %s i %s" % str(n1,n2))
-print("Już wiem. Twoja pełnoletniość w boolean to %s" % str(adult))
+import sys
+import logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile.log")
 
+def dzialanie(n1, n2):
+    print("Witaj, oto kalkulator Magdy :)")
+    if action == '1':
+        n1 = int(input("Podaj składnik 1:"))
+        n2 = int(input("Podaj składnik 2:"))
+        wynik = n1 + n2
+        logging.info("Dodaję %s i %s" % str(n1,n2))
+        print(wynik)
+    elif action == '2':
+        n1 = int(input("Podaj składnik 1:"))
+        n2 = int(input("Podaj składnik 2:"))
+        wynik = n1 - n2
+        logging.info("Odejmuję %s i %s" % str(n1,n2))
+        print(wynik)
+    elif action == '3':
+        n1 = int(input("Podaj składnik 1:"))
+        n2 = int(input("Podaj składnik 2:"))
+        wynik = n1 * n2
+        logging.info("Mnożę %s i %s" % str(n1,n2))
+        print(wynik)
+    elif action == '4':
+        n1 = int(input("Podaj składnik 1:"))
+        n2 = int(input("Podaj składnik 2:"))
+        wynik = n1 % n2
+        logging.info("Dzielę %s i %s" % str(n1,n2))
+        print(wynik)
+    else:
+        print("Nie ma takiego numeru!")
+        exit(1)
+
+if __name__ == "__main__":
+    action = int(input("Podaj działanie, posługując się odpowiednią liczbą: 1 - Dodawanie, 2 - Odejmowanie, 3 - Mnożenie, 4 - Dzielenie: "))
+    logging.debug("The program was called with this parameters %s , %s" % sys.argv[1:], sys.argv[2])
+    logging.debug("First parameter is %s and secound parametr is %s ." % sys.argv[1], sys.argv[2])
+    n1 = int(sys.argv[1])
+    n2 = int(sys.argv[2])
+    dzialanie(n1, n2)
