@@ -1,28 +1,28 @@
 import logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s', filename="logfile.log")
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile.log")
 
 def dzialanie(action):
     if action == 1:
-        n1 = int(input("Podaj składnik 1:"))
-        n2 = int(input("Podaj składnik 2:"))
+        n1 = float(input("Podaj składnik 1:"))
+        n2 = float(input("Podaj składnik 2:"))
         wynik = n1 + n2
         logging.info("Dodaję %s i %s." % (str(n1), str(n2)))
         print(wynik)
     elif action == 2:
-        n1 = int(input("Podaj składnik 1:"))
-        n2 = int(input("Podaj składnik 2:"))
+        n1 = float(input("Podaj składnik 1:"))
+        n2 = float(input("Podaj składnik 2:"))
         wynik = n1 - n2
         logging.info("Odejmuję %s i %s." % (str(n1), str(n2)))
         print(wynik)
     elif action == 3:
-        n1 = int(input("Podaj składnik 1:"))
-        n2 = int(input("Podaj składnik 2:"))
+        n1 = float(input("Podaj składnik 1:"))
+        n2 = float(input("Podaj składnik 2:"))
         wynik = n1 * n2
         logging.info("Mnożę %s i %s." % (str(n1), str(n2)))
         print(wynik)
     elif action == 4:
-        n1 = int(input("Podaj składnik 1:"))
-        n2 = int(input("Podaj składnik 2:"))
+        n1 = float(input("Podaj składnik 1:"))
+        n2 = float(input("Podaj składnik 2:"))
         wynik = n1 / n2
         logging.info("Dzielę %s i %s" % (str(n1), str(n2)))
         print(wynik)
