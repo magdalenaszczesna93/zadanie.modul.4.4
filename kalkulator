@@ -1,4 +1,6 @@
 import logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile.log")
+
 def add(a, b):
     logging.info(f"Dodaję {a} i {b}.")
     return a + b
@@ -17,8 +19,8 @@ def div(a, b):
     
 def get_data():
     op = input("Podaj działanie, posługując się odpowiednią liczbą: 1 - Dodawanie, 2 - Odejmowanie, 3 - Mnożenie, 4 - Dzielenie: ")
-    a = int(input("Podaj składnik 1: "))
-    b = int(input("Podaj składnik 2: "))     
+    a = float(input("Podaj składnik 1: "))
+    b = float(input("Podaj składnik 2: "))     
     return op, a, b
 
 operations = {
@@ -30,13 +32,13 @@ operations = {
 
 def main():
     op, a, b = get_data()
-
-    # try:
-    #     result = operations[op](a, b)
-    # print("Wynik to: ", result)
-    # except KeyError:
-    #     print("Nieznana operacja!")
-    result = operations.get(op, lambda x, y: print("Nieznana operacja"))(a, b)
+    try:
+        result = operations[op](a, b)
+        print("Wynik to: ", result)
+    except KeyError:
+        print("Nieznana operacja!")
+    
+    #result = operations.get(op, lambda x, y: print("Nieznana operacja"))(a, b)
 
 
 if __name__ == "__main__":
