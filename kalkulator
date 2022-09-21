@@ -1,32 +1,30 @@
 import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile.log")
 
-def dzialanie(action):
+def dodawanie(action):
     if action == 1:
         wynik = n1 + n2
         logging.info("Dodaję %s i %s." % (str(n1), str(n2)))
-        
-    elif action == 2:
+def odejmowanie(action):
+    if action == 2:        
         wynik = n1 - n2
         logging.info("Odejmuję %s i %s." % (str(n1), str(n2)))
-        
-    elif action == 3:
+def mnozenie(action):
+    if action == 3:
         wynik = n1 * n2
         logging.info("Mnożę %s i %s." % (str(n1), str(n2)))
-        
-    elif action == 4:
+def dzielenie(action):
+    if action == 4:
         wynik = n1 / n2
-        logging.info("Dzielę %s i %s" % (str(n1), str(n2)))
-        
-    else:
+        logging.info("Dzielę %s i %s" % (str(n1), str(n2)))    
+def blad(action):    
+    if action != 1 or 2 or 3 or 4:
         print("Nie ma takiego numeru!")
         exit(1)
 
-    print(wynik)
 
 if __name__ == "__main__":
     print("Witaj, oto kalkulator Magdy :)")
     n1 = float(input("Podaj składnik 1:"))
     n2 = float(input("Podaj składnik 2:"))
     action = int(input("Podaj działanie, posługując się odpowiednią liczbą: 1 - Dodawanie, 2 - Odejmowanie, 3 - Mnożenie, 4 - Dzielenie: "))
-    print(dzialanie(action))
